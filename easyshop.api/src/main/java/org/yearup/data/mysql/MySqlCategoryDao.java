@@ -39,7 +39,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
 
             while (rs.next()) {
                 Category category = new Category();
-                category.setCategoryId(rs.getInt("categoryId"));
+                category.setCategoryId(rs.getInt("category_Id"));
                 category.setName(rs.getString("Name"));
                 category.setDescription(rs.getString("Description"));
 
@@ -58,7 +58,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
         Category category = null;
 
         String sql1= """
-                SELECT categoryId, Name
+                SELECT category_Id, Name
                 FROM categories
                 WHERE categoryId = ?""";
 
@@ -70,7 +70,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
            ResultSet rs = stmt.executeQuery();
 
            if (rs.next()) {
-               int id = rs.getInt("categoryId");
+               int id = rs.getInt("category_Id");
                String name = rs.getString("Name");
 
                category = new Category();
