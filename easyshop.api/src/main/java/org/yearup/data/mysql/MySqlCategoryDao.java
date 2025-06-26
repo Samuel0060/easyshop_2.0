@@ -39,7 +39,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
 
             while (rs.next()) {
                 Category category = new Category();
-                category.setCategoryId(rs.getInt("category_Id"));
+                category.setCategoryId(rs.getInt("category_id"));
                 category.setName(rs.getString("Name"));
                 category.setDescription(rs.getString("Description"));
 
@@ -58,9 +58,9 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
         Category category = null;
 
         String sql1= """
-                SELECT category_Id, Name
+                SELECT category_id, Name
                 FROM categories
-                WHERE categoryId = ?""";
+                WHERE category_id = ?""";
 
        try (Connection conn = dataSource.getConnection();
        PreparedStatement stmt = conn.prepareStatement(sql1)
@@ -70,7 +70,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
            ResultSet rs = stmt.executeQuery();
 
            if (rs.next()) {
-               int id = rs.getInt("category_Id");
+               int id = rs.getInt("category_id");
                String name = rs.getString("Name");
 
                category = new Category();
@@ -118,7 +118,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
         String sql = """
             UPDATE categories
             SET name = ?, description = ?
-            WHERE categoryId = ?
+            WHERE category_id = ?
             """;
 
         try (Connection conn = dataSource.getConnection();
@@ -141,7 +141,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
         // delete category
         String sql = """
             DELETE FROM categories
-            WHERE categoryId = ?
+            WHERE category_id = ?
             """;
 
         try (Connection conn = dataSource.getConnection();
