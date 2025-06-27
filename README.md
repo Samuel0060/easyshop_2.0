@@ -26,10 +26,14 @@ Key Features
  Logged-in users can add products to their cart, update quantities, and remove items.
 
 -🔒 Role-Based Security:
-
 -Only authenticated users can add items to their cart.
-
 -Only admins can create, update, or delete products and categories.
+
+✅ Unit Testing Coverage:
+Unit tests ensure that the minimum and maximum price filtering works correctly.
+Unit tests confirm that updating products fully updates all related fields and works as expected.
+![image](https://github.com/user-attachments/assets/5e21cb84-449c-4ba8-88c6-2f0086cc5d2d)
+
 
 -Technologies Used
  💻 Java
